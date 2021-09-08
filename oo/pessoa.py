@@ -5,7 +5,8 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá Glauber  {id(self)}'
+        return f'Olá Mundo'
+
 
 if __name__ == '__main__':
     glauber = Pessoa(nome='Glauber')
@@ -17,5 +18,11 @@ if __name__ == '__main__':
     print((alanna.idade))
     for filho in alanna.filhos:
         print((filho.nome))
+    alanna.sobrenome = 'Caraciola'
+    print(alanna.sobrenome)
+    print((glauber.__dict__))
+    print((alanna.__dict__))
+    del glauber.filhos
+    print(glauber.__dict__)
 
 
