@@ -8,9 +8,21 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá Mundo'
 
+    @staticmethod
+    def metodo_static():
+        return 42
+
+    @classmethod
+    def nome_e_atributo_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
+
+class Homem(Pessoa):  # Metodo Hernaça
+    pass
+
 
 if __name__ == '__main__':
-    glauber = Pessoa(nome='Glauber')
+    glauber = Homem(nome='Glauber')
     alanna = Pessoa(glauber, nome='Alanna')
     print(Pessoa.cumprimentar(alanna))
     print(alanna.cumprimentar())
@@ -34,3 +46,11 @@ if __name__ == '__main__':
     print((alanna.__dict__))
     del alanna.olhos
     print(alanna.olhos)
+    print()
+    print(Pessoa.metodo_static(), glauber.metodo_static())
+    print(Pessoa.nome_e_atributo_de_classe(), glauber.nome_e_atributo_de_classe())
+    pessoa=Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+    print(isinstance(alanna, Homem))
+    print(isinstance(glauber, Homem))
